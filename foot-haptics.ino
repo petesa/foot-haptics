@@ -3,7 +3,8 @@
 #include "Adafruit_DRV2605.h"
 
 // Define FSR pin:
-#define fsrpin A5
+#define fsrpin1 A5
+#define fsrpin1 A6
 
 Adafruit_DRV2605 drv;
 
@@ -30,7 +31,7 @@ void setup() {
 void loop() {
   // Read the FSR pin and store the output as fsrreading:
   // sensorState = analogRead(fsrpin) - 580; // Magic number, the resistance we get from the circuit
-  if (analogRead(fsrpin) > threshold) {
+  if (analogRead(fsrpin1) > threshold || analogRead(fsrpin2) > threshold) {
     sensorState = 1;
   } else {
     sensorState = 0;
